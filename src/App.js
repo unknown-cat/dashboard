@@ -24,10 +24,9 @@ import {
 } from './pages';
 
 import './App.css';
-import SideBar from './components/Sidebar';
 
 const App = () => {
-  const activeMenu = false;
+  const activeMenu = true;
 
   return (
     <div>
@@ -46,7 +45,7 @@ const App = () => {
           </div>
           {activeMenu ? (
             <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white'>
-              <SideBar />
+              <Sidebar />
             </div>
           ) : (
             <div className='w-0 dark:bg-secondary-dark-bg'>sidebar w-0</div>
