@@ -20,9 +20,8 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
       <span
         className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'
         style={{ backgroundColor: dotColor }}
-      >
-        {icon}
-      </span>
+      />
+      {icon}
     </button>
   </TooltipComponent>
 );
@@ -54,7 +53,7 @@ const Navbar = () => {
     } else {
       setActiveMenu(true);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [screenSize]);
 
   return (
