@@ -27,13 +27,40 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   </TooltipComponent>
 );
 const Navbar = () => {
-  const { activeMenu, setactiveMenu, isClicked, setisClicked, handleClick } =
-    useStateContext();
+  const {
+    activeMenu,
+    setActiveMenu,
+    isClicked,
+    setisClicked,
+    handleClick,
+    screenSize,
+    setScreenSize,
+  } = useStateContext();
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [screenSize]);
 
   return (
     <nav className='flex justify-between p-2 md:ml-6 md:mr-6 relative'>
       <NavButton
-        customFunc={() => setactiveMenu((prevActiveMenu) => !prevActiveMenu)}
+        customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
         title='Menu'
         color='blue'
         icon={<AiOutlineMenu />}
