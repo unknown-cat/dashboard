@@ -10,7 +10,7 @@ import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
-  <TooltipComponent content={title} position='bottomCenter'>
+  <TooltipComponent content={title} position='BottomCenter'>
     <button
       className='relative text-xl rounded-full p-3 hover:bg-light-gray'
       onClick={() => customFunc()}
@@ -26,9 +26,9 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
     </button>
   </TooltipComponent>
 );
-const handleClick = (prop) => console.log(prop);
 const Navbar = () => {
-  const { activeMenu, setactiveMenu } = useStateContext();
+  const { activeMenu, setactiveMenu, isClicked, setisClicked, handleClick } =
+    useStateContext();
 
   return (
     <nav className='flex justify-between p-2 md:ml-6 md:mr-6 relative'>
@@ -75,6 +75,10 @@ const Navbar = () => {
           </div>
         </TooltipComponent>
 
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </nav>
   );
