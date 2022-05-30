@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsCurrencyDollar } from 'react-icons';
+import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { Stacked, Pie, Button, SparkLine } from '../components';
 import {
@@ -21,7 +21,7 @@ const Ecommerce = () => {
             </div>
           </div>
 
-          <section className='mt-6'>
+          <div className='mt-6'>
             <Button
               color='white'
               bgColor='blue'
@@ -29,7 +29,7 @@ const Ecommerce = () => {
               borderRadius='10px'
               size='md'
             />
-          </section>
+          </div>
         </section>
 
         <section className='flex m-3 flex-wrap justify-center gap-1 items-center'>
@@ -57,8 +57,67 @@ const Ecommerce = () => {
         </section>
       </div>
 
-      section.
+      <section className='flex gap-10 flex-wrap justify-center'>
+        <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780'>
+          <div className='flex justify-between'>
+            <h2 className='font-semibold text-xl'>Revenue Updates</h2>
+            <div className='flex items-center gap-4'>
+              <h2 className='flex items-center gap-2 text-gray-600 hover:drop-shadow-xl'>
+                <span>
+                  <GoPrimitiveDot />
+                </span>
+                <span>Expense</span>
+              </h2>
+              <h2 className='flex items-center gap-2 text-green-400 hover:drop-shadow-xl'>
+                <span>
+                  <GoPrimitiveDot />{' '}
+                </span>
+                <span>Budget</span>
+              </h2>
+            </div>
+          </div>
 
+          <section className='mt-10 flex gap-10 flex-wrap justify-center'>
+            <div className='border-r-1 border-color m-4 pr-10'>
+              <section>
+                <p>
+                  <span className='text-3xl font-semibold'>$93,438</span>
+                  <span className='p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3'>
+                    23%
+                  </span>
+                </p>
+                <h2 className='text-gray-500 mt-1'>Budget</h2>
+              </section>
+
+              <section className='mt-8'>
+                <p className='text-3xl font-semibold'>$48,487</p>
+                <h2 className='text-gray-500 mt-1'>Expense</h2>
+              </section>
+
+              <section className='mt-5'>
+                <SparkLine
+                  currentColor='blue'
+                  id='line-sparkline'
+                  type='Line'
+                  height='80px'
+                  width='250px'
+                  data={SparklineAreaData}
+                  color='blue'
+                />
+              </section>
+
+              <div className='mt-10'>
+                <Button
+                  color='white'
+                  bgColor='blue'
+                  text='Download Report'
+                  borderRadius='10px'
+                />
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
     </section>
   );
 };
