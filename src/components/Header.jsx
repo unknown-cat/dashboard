@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-const Header = () => {
+const Header = ({ category, title }) => {
   return (
-    <div>Header</div>
-  )
-}
+    <div className='mb-10'>
+      <p className='text-gray-400'>{category}</p>
+      <p className='text-xl-3 font-extrabold tracking-tight text-slate-900'>
+        {title}
+      </p>
+    </div>
+  );
+};
 
-export default Header
+export default Header;
